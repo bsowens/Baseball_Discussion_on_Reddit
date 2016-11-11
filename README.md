@@ -1,6 +1,6 @@
 # cs505-final-project
 
-###Proposal:
+##Proposal:
 ####Topic: Baseball Discussion on Reddit
 ####Authors: Benjamin Owens & Jennifer Tsui
 
