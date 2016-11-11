@@ -5,7 +5,7 @@
 ####Authors: Benjamin Owens & Jennifer Tsui
 
 
-1) Discuss the dataset and their nature. How you got them, how they have been collected, what are their main characteristics, if you need to pre-process them, etc.
+#####1) Discuss the dataset and their nature. How you got them, how they have been collected, what are their main characteristics, if you need to pre-process them, etc.
 
 
 We will be analyzing 2 datasets:
