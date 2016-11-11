@@ -50,4 +50,23 @@ Our hypothesis is that teams will, in general, become more popular if they perfo
 
 
 
+##Files
+
+File: scrape_reddit.ipynb
+Purpose: CS 505 Final Project | Scraping reddit.com/r/baseball posts
+Authors: Benjamin Owens, Jennifer Tsui
+Last modification: November 11, 2016
+
+Description:
+This is a script that allows one to collect reddit posts from a subreddit (in this case, /r/baseball).
+The script allows the user to collect data from any time period, specified by the user input. 
+
+For the purposes of this assignment, we collected posts from the most recent full year (2015). The .csv
+file derived from the full execution is included in the repository (data.csv), as well as the filtered data
+that includes only posts including the mentions of teams and cities (posts_with_mentions.csv). 
+The filtering component of the script is not finalized, but the methodology is sound 
+(we'll need to include abbreviations, nicknames, common typos, etc. in the future). 
+
+The runtime is on the order of 5-10 seconds / day, depending of the activity (number of posts).
+
 
