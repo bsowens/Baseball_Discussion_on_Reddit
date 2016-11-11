@@ -35,7 +35,7 @@ To visualize the data, we plan to represent the wins and losses in at least two 
 #####3) Application.
 
 
-Oftentimes sports have the side effect of bonding together the fans of each team. Perhaps it’s the case that a very lonely person is looking to find their niche in the form of a baseball team to be a fan of. Our data would help this person find the most loyal fanbases, so they can make some new friends and bond over their newfound passion of baseball! On the other hand, locating a very loyal fanbase may help with classifying the general sentiment of the fanbase, and why they may be seen as negative or positive. This may sound farfetched, but in actuality the study of sports fans lays at the intersections of various disciplines including psychology, sociology, and physiology. If you’re curious about it, please see the included links.
+Often times sports have the side effect of bonding together the fans of each team. Perhaps it’s the case that a very lonely person is looking to find their niche in the form of a baseball team to be a fan of. Our data would help this person find the most loyal fanbases, so they can make some new friends and bond over their newfound passion of baseball! On the other hand, locating a very loyal fanbase may help with classifying the general sentiment of the fanbase, and why they may be seen as negative or positive. This may sound farfetched, but in actuality the study of sports fans lays at the intersections of various disciplines including psychology, sociology, and physiology. If you’re curious about it, please see the included links.
 
 
 http://www.sportsnetworker.com/2012/02/15/the-psychology-of-sports-fans-what-makes-them-so-crazy/
