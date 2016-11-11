@@ -1,8 +1,8 @@
 # cs505-final-project
 
-##CS 505 Final Project: Proposal
-##Topic: Baseball Discussion on Reddit
-##Authors: Benjamin Owens & Jennifer Tsui
+####CS 505 Final Project: Proposal
+####Topic: Baseball Discussion on Reddit
+####Authors: Benjamin Owens & Jennifer Tsui
 
 
 1) Discuss the dataset and their nature. How you got them, how they have been collected, what are their main characteristics, if you need to pre-process them, etc.
