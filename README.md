@@ -52,9 +52,10 @@ Our hypothesis is that teams will, in general, become more popular if they perfo
 
 ##Files
 
-File: scrape_reddit.ipynb
-Purpose: CS 505 Final Project | Scraping reddit.com/r/baseball posts
-Authors: Benjamin Owens, Jennifer Tsui
+######File: scrape_reddit.ipynb
+######Purpose: CS 505 Final Project | Scraping reddit.com/r/baseball posts
+######Authors: Benjamin Owens, Jennifer Tsui
+
 Last modification: November 11, 2016
 
 Description:
