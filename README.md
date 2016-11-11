@@ -1,6 +1,5 @@
 # cs505-final-project
 
-####CS 505 Final Project: Proposal
 ####Topic: Baseball Discussion on Reddit
 ####Authors: Benjamin Owens & Jennifer Tsui
 
@@ -47,4 +46,8 @@ https://en.wikipedia.org/wiki/Fan_loyalty
 #####4) Expected results.
 
 
-Our hypothesis is that teams will, in general, become more popular if they perform well, and less popular if they perform poorly. We hope to find that some teams have more loyal fanbases than other, when their popularity remains high despite poor performance, and that some teams are only popular when they are performing well.
+Our hypothesis is that teams will, in general, become more popular if they perform well, and less popular if they perform poorly. With this correlation in mind, we hope to find that some teams have more loyal fanbases than other, when their popularity remains high despite poor performance, and that some teams are only popular when they are performing well.
+
+
+
+
