@@ -13,7 +13,7 @@ We will be analyzing 2 datasets:
 * [www.reddit.com/r/baseball](https://www.reddit.com/r/baseball/) (posts and comments)
  * We will be using the Reddit API to retrieve data from the /r/baseball subreddit. We plan to perform semantic analysis to quantify popularity of teams based on quantity and frequency of mentions and discussion.
  
-*[ESPN](www.espn.com/static/apis/devcenter/docs/scores.html) OR [Retrosheet 2015 game log](http://www.retrosheet.org/gamelogs/index.html) 
+* [ESPN](www.espn.com/static/apis/devcenter/docs/scores.html) OR [Retrosheet 2015 game log](http://www.retrosheet.org/gamelogs/index.html) 
  * We may either use the ESPN API or the gamelogs dataset from 2015 (which is a CSV) in order to get more information on how each team performed during the year. For example, we would retrieve the number of losses and wins for a team, when these losses and wins happened, as well as post-season performance, where teams are either eliminated or advance to the next series.
  * Note (11/11/16): We discovered we could not access the ESPN API anymore, thus we decided to use the Retrosheet game log. That dataset did not contain any information on post-season performance, so we only kept the data pertaining to which teams were playing and who won or lost.
  
