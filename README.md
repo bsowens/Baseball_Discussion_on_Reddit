@@ -53,10 +53,9 @@ Our hypothesis is that teams will, in general, become more popular if they perfo
 
 ##Files
 
-######scrape_reddit.ipynb
-######Purpose: CS 505 Final Project | Scraping reddit.com/r/baseball posts
-
-Last modification: November 11, 2016
+####scrape_reddit.ipynb
+####Purpose: CS 505 Final Project | Scraping reddit.com/r/baseball posts
+####Last modification: November 11, 2016
 
 Description:
 This is a script that allows one to collect reddit posts from a subreddit (in this case, /r/baseball).
