@@ -2,7 +2,7 @@
 
 ##Proposal:
 ####Topic: Baseball Discussion on Reddit
-####Authors: Benjamin Owens & Jennifer Tsui
+####Authors: Benjamin Owens (bsowens) & Jennifer Tsui (j-tsui)
 
 
 #####1) Discuss the dataset and their nature. How you got them, how they have been collected, what are their main characteristics, if you need to pre-process them, etc.
