@@ -16,6 +16,7 @@ We will be analyzing 2 datasets:
 *[ESPN](www.espn.com/static/apis/devcenter/docs/scores.html) OR [Retrosheet 2015 game log](http://www.retrosheet.org/gamelogs/index.html) 
  * We may either use the ESPN API or the gamelogs dataset from 2015 (which is a CSV) in order to get more information on how each team performed during the year. For example, we would retrieve the number of losses and wins for a team, when these losses and wins happened, as well as post-season performance, where teams are either eliminated or advance to the next series.
  * Note (11/11/16): We discovered we could not access the ESPN API anymore, thus we decided to use the Retrosheet game log. That dataset did not contain any information on post-season performance, so we only kept the data pertaining to which teams were playing and who won or lost.
+ 
 * If we have time:[Sentiment Labelled Sentences Data Set ](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
  * If we want to delve further into the discussion of teams on subreddits, we might use this very unique dataset, which provides the tools to classify sentences based on a positive or negative sentiment.
 
