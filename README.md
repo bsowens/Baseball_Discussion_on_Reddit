@@ -10,15 +10,15 @@
 
 We will be analyzing 2 datasets:
 
-- [www.reddit.com/r/baseball](https://www.reddit.com/r/baseball/) (posts and comments)
---We will be using the Reddit API to retrieve data from the /r/baseball subreddit. We plan to perform semantic analysis to quantify popularity of teams based on quantity and frequency of mentions and discussion.
+* [www.reddit.com/r/baseball](https://www.reddit.com/r/baseball/) (posts and comments)
+	*We will be using the Reddit API to retrieve data from the /r/baseball subreddit. We plan to perform semantic analysis to quantify popularity of teams based on quantity and frequency of mentions and discussion.
 
 
--[ESPN](www.espn.com/static/apis/devcenter/docs/scores.html) OR [Retrosheet 2015 game log](http://www.retrosheet.org/gamelogs/index.html) 
--- We may either use the ESPN API or the gamelogs dataset from 2015 (which is a CSV) in order to get more information on how each team performed during the year. For example, we would retrieve the number of losses and wins for a team, when these losses and wins happened, as well as post-season performance, where teams are either eliminated or advance to the next series.
--- Note (11/11/16): We discovered we could not access the ESPN API anymore, thus we decided to use the Retrosheet game log. That dataset did not contain any information on post-season performance, so we only kept the data pertaining to which teams were playing and who won or lost.
--If we have time:[Sentiment Labelled Sentences Data Set ](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
---If we want to delve further into the discussion of teams on subreddits, we might use this very unique dataset, which provides the tools to classify sentences based on a positive or negative sentiment.
+*[ESPN](www.espn.com/static/apis/devcenter/docs/scores.html) OR [Retrosheet 2015 game log](http://www.retrosheet.org/gamelogs/index.html) 
+	*We may either use the ESPN API or the gamelogs dataset from 2015 (which is a CSV) in order to get more information on how each team performed during the year. For example, we would retrieve the number of losses and wins for a team, when these losses and wins happened, as well as post-season performance, where teams are either eliminated or advance to the next series.
+	*Note (11/11/16): We discovered we could not access the ESPN API anymore, thus we decided to use the Retrosheet game log. That dataset did not contain any information on post-season performance, so we only kept the data pertaining to which teams were playing and who won or lost.
+*If we have time:[Sentiment Labelled Sentences Data Set ](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
+	*If we want to delve further into the discussion of teams on subreddits, we might use this very unique dataset, which provides the tools to classify sentences based on a positive or negative sentiment.
 
 
 ####2) Expected analysis on the dataset. What kind of techniques you plan to use.
@@ -42,9 +42,9 @@ To visualize the data, we plan to represent the wins and losses in at least two 
 Often times sports have the side effect of bonding together the fans of each team. Perhaps it’s the case that a very lonely person is looking to find their niche in the form of a baseball team to be a fan of. Our data would help this person find the most loyal fanbases, so they can make some new friends and bond over their newfound passion of baseball! On the other hand, locating a very loyal fanbase may help with classifying the general sentiment of the fanbase, and why they may be seen as negative or positive. This may sound farfetched, but in actuality the study of sports fans lays at the intersections of various disciplines including psychology, sociology, and physiology. If you’re curious about it, please see the included links.
 
 
-- [The Psychology Of Social Sports Fans: What Makes Them So Crazy?](http://www.sportsnetworker.com/2012/02/15/the-psychology-of-sports-fans-what-makes-them-so-crazy/)
-- [The psychology of being a sports fan](http://www.seattletimes.com/sports/the-psychology-of-being-a-sports-fan/)
-- [Fan Loyalty](https://en.wikipedia.org/wiki/Fan_loyalty)
+* [The Psychology Of Social Sports Fans: What Makes Them So Crazy?](http://www.sportsnetworker.com/2012/02/15/the-psychology-of-sports-fans-what-makes-them-so-crazy/)
+* [The psychology of being a sports fan](http://www.seattletimes.com/sports/the-psychology-of-being-a-sports-fan/)
+* [Fan Loyalty](https://en.wikipedia.org/wiki/Fan_loyalty)
 
 ####4) Expected results.
 
