@@ -70,4 +70,4 @@ The filtering component of the script is not finalized, but the methodology is s
 
 The runtime is on the order of 5-10 seconds / day, depending of the activity (number of posts).
 
-
+####baseball_data.csv
