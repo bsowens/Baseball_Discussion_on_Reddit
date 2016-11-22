@@ -4,6 +4,7 @@ import numpy as np
 import time
 import datetime
 import itertools as it
+import matplotlib.pyplot as plt
 
 
 def winners(filename):
@@ -74,9 +75,13 @@ def bin_winners(df, filename):
     return results
 
 
+
+
 # Run functions on 2015 data
 df = winners('baseball_data_2015.csv')
-bin_winners(df, 'team_stats_2015.csv')
+result = bin_winners(df, 'team_stats_2015.csv')
 
 
-
+rows = result.iloc[0:3]
+rows.plot(kind='line')
+plt.show()
