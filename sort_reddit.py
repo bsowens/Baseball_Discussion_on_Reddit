@@ -1,10 +1,10 @@
 
-import praw
+
 import pandas as pd
-import numpy as np
-import time
 import datetime
-import itertools as it
+import statsmodels.formula.api as sm
+import matplotlib.pyplot as plt
+
 
 # some preprocessing to filter out posts that dont mention a team or city
 teams = ['Arizona',
@@ -202,14 +202,12 @@ for week in week_dict.keys():
 
 results = pd.DataFrame(week_dict)
 results.to_csv("reddit_stats.csv")
-print_full(results)
+print(results)
 #df_1_columns = list(results.columns.values)
 #df_1 = results[df_1_columns]
 #df_1
 
+bar_1 = plt.bar()
 
-
-
-
-
+plt.show()
 
