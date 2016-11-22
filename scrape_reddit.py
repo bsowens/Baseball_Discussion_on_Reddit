@@ -15,6 +15,9 @@ The filtering component of the script is not finalized, but the methodology is s
 (we'll need to include abbreviations, nicknames, common typos, etc. in the future). 
 
 The runtime is on the order of 5-10 seconds per day, depending on the activity (number of posts).
+
+The raw script is also included as a .py file.
+
 '''
 
 import praw
@@ -70,8 +73,6 @@ for i in range(1,len(days[1:])):
 scores = [x[0] for x in submissionList]
 posts = [x[1] for x in submissionList]
 dates = [x[2] for x in submissionList]
-
-
 df = pd.DataFrame()
 df["Score"] = scores
 df["Title"] = posts
@@ -80,82 +81,3 @@ df["Date"] = dates
 df.to_csv("data.csv")
 print("Done writing 'data.csv'")
 
-# some preprocessing to filter out posts that dont mention a team or city
-teams = ['Arizona',
- 'Diamondbacks',
- 'Atlanta',
- 'Braves',
- 'Baltimore',
- 'Orioles',
- 'Boston',
- 'Red',
- 'Sox',
- 'Chicago',
- 'Cubs',
- 'Chicago',
- 'White',
- 'Sox',
- 'Cincinnati',
- 'Reds',
- 'Cleveland',
- 'Indians',
- 'Colorado',
- 'Rockies',
- 'Detroit',
- 'Tigers',
- 'Miami',
- 'Marlins',
- 'Houston',
- 'Astros',
- 'Kansas',
- 'City',
- 'Royals',
- 'Los',
- 'Angeles',
- 'Angels',
- 'Anaheim',
- 'Los',
- 'Angeles',
- 'Dodgers',
- 'Milwaukee',
- 'Brewers',
- 'Minnesota',
- 'Twins',
- 'New',
- 'York',
- 'Mets',
- 'New',
- 'York',
- 'YankeesOakland',
- 'Athletics',
- 'Philadelphia',
- 'Phillies',
- 'Pittsburgh',
- 'Pirates',
- 'Saint',
- 'Louis',
- 'Cardinals',
- 'San',
- 'Diego',
- 'Padres',
- 'San',
- 'Francisco',
- 'Giants',
- 'Seattle',
- 'Mariners',
- 'Tampa',
- 'Bay',
- 'Rays',
- 'Texas',
- 'Rangers',
- 'Toronto',
- 'Blue',
- 'Jays',
- 'Washington',
- 'Nationals']
-
-filtered = df[df['Title'].str.split().apply(lambda x: len(set(x).intersection(set(teams))))>0]
-filtered.to_csv("posts_with_mentions.csv")          
-print("Done writing 'posts_with_mentions.csv'")
-
-#EOF
