@@ -11,7 +11,7 @@
 We will be analyzing 2 datasets:
 
 * [www.reddit.com/r/baseball](https://www.reddit.com/r/baseball/) (posts and comments)
- * We will be using the Reddit API to retrieve data from the /r/baseball subreddit. We plan to perform semantic analysis to quantify popularity of teams based on quantity and frequency of mentions and discussion.
+ * We will be using the Reddit API and the pacakge [PRAW](https://github.com/praw-dev/praw) to retrieve data from the /r/baseball subreddit. We plan to perform semantic analysis to quantify popularity of teams based on quantity and frequency of mentions and discussion.
  
 * [ESPN](www.espn.com/static/apis/devcenter/docs/scores.html) OR [Retrosheet 2015 game log](http://www.retrosheet.org/gamelogs/index.html) 
  * We may either use the ESPN API or the gamelogs dataset from 2015 (which is a CSV) in order to get more information on how each team performed during the year. For example, we would retrieve the number of losses and wins for a team, when these losses and wins happened, as well as post-season performance, where teams are either eliminated or advance to the next series.
@@ -43,7 +43,7 @@ Often times sports have the side effect of bonding together the fans of each tea
 
 
 * [The Psychology Of Social Sports Fans: What Makes Them So Crazy?](http://www.sportsnetworker.com/2012/02/15/the-psychology-of-sports-fans-what-makes-them-so-crazy/)
-* [The psychology of being a sports fan](http://www.seattletimes.com/sports/the-psychology-of-being-a-sports-fan/)
+* [The Psychology of Being a Sports Fan](http://www.seattletimes.com/sports/the-psychology-of-being-a-sports-fan/)
 * [Fan Loyalty](https://en.wikipedia.org/wiki/Fan_loyalty)
 
 ####4) Expected results.
