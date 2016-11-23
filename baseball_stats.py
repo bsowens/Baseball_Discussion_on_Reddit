@@ -6,6 +6,8 @@ import datetime
 import itertools as it
 import matplotlib.pyplot as plt
 
+teams = ['ANA', 'ARI', 'ATL', 'BAL', 'BOS', 'CWS', 'CHC', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAD', 'MIA', 'MIL', 'MIN', 'NYY', 'NYM', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'SLC', 'TBR', 'TEX', 'TOR', 'WAS']
+
 
 def winners(filename):
     '''Parse baseball data and determine the winner of each game'''
@@ -70,8 +72,11 @@ def bin_winners(df, filename):
     # Convert dict to pandas
 
     results = pd.DataFrame(week_dict).fillna(value=0).astype(int)
+    results.index = teams
     results.to_csv(filename)
     #print(results.index.tolist())
+
+    print(results)
     return results
 
 
@@ -88,5 +93,6 @@ num_plots = int(input("Enter the number of team's plots: "))
 for i in range(0,num_plots):
     plt.plot(columns,result.iloc[i],markersize=25.0)
 axes = plt.gca()
+plt.legend(teams[:num_plots])
 axes.set_ylim([0,7])
 plt.show()

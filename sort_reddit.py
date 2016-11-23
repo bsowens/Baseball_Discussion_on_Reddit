@@ -82,6 +82,7 @@ team_names = ['Arizona',
  'Nationals']
 df = pd.read_csv('data.csv')
 filtered = df[df['Title'].str.split().apply(lambda x: len(set(x).intersection(set(team_names))))>0]
+filtered = filtered.drop_duplicates()
 filtered.to_csv("posts_with_mentions.csv")
 print("Done writing 'posts_with_mentions.csv'")
 
@@ -129,11 +130,12 @@ teamDict = {'ANA':["Anaheim","Angels",],
 
 
 # Initialize date variables
-first_date = pd.to_datetime(df.iloc[0]['Date'])
-last_date = pd.to_datetime(df.iloc[-1]['Date'])
 week_delta = datetime.timedelta(days=7)
 day_delta = datetime.timedelta(days=1)
 hour_delta = datetime.timedelta(hours=1)
+first_date = pd.to_datetime(df.iloc[0]['Date']) + day_delta + day_delta + day_delta
+last_date = pd.to_datetime(df.iloc[-1]['Date'])
+
 week_starts = [first_date]
 
 # Create keys as the first day of every week
@@ -201,7 +203,7 @@ for week in week_dict.keys():
 # Convert dict to pandas
 
 results = pd.DataFrame(week_dict)
-results.to_csv("reddit_stats.csv")
+results.to_csv("reddit_stats_2015.csv")
 print(results)
 #df_1_columns = list(results.columns.values)
 #df_1 = results[df_1_columns]
