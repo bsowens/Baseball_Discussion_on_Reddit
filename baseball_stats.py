@@ -82,6 +82,11 @@ df = winners('baseball_data_2015.csv')
 result = bin_winners(df, 'team_stats_2015.csv')
 
 
-rows = result.iloc[0:3]
-rows.plot(kind='line')
+
+columns = result.iloc[0].index.values
+num_plots = int(input("Enter the number of team's plots: "))
+for i in range(0,num_plots):
+    plt.plot(columns,result.iloc[i],markersize=25.0)
+axes = plt.gca()
+axes.set_ylim([0,7])
 plt.show()

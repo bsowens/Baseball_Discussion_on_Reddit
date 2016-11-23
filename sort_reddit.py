@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 # some preprocessing to filter out posts that dont mention a team or city
-teams = ['Arizona',
+team_names = ['Arizona',
  'Diamondbacks',
  'Atlanta',
  'Braves',
@@ -81,7 +81,7 @@ teams = ['Arizona',
  'Washington',
  'Nationals']
 df = pd.read_csv('data.csv')
-filtered = df[df['Title'].str.split().apply(lambda x: len(set(x).intersection(set(teams))))>0]
+filtered = df[df['Title'].str.split().apply(lambda x: len(set(x).intersection(set(team_names))))>0]
 filtered.to_csv("posts_with_mentions.csv")
 print("Done writing 'posts_with_mentions.csv'")
 
@@ -207,7 +207,12 @@ print(results)
 #df_1 = results[df_1_columns]
 #df_1
 
-bar_1 = plt.bar()
-
+columns = results.iloc[0].index.values
+num_plots = int(input("Enter the number of team's plots: "))
+for i in range(0,num_plots):
+    plt.plot(columns, results.iloc[i], markersize = 25.0)
+plt.legend(teams[:num_plots])
+axes = plt.gca()
+axes.set_ylim([0,150])
 plt.show()
 
