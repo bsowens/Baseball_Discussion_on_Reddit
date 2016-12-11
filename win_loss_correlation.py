@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+import csv
 
 
 bdf = pd.read_csv('team_stats_2015.csv')
@@ -51,3 +51,15 @@ plt.subplot(212)
 plt.bar(range(len(reg_corr)), reg_corr.values(), align='center')
 plt.xticks(range(len(reg_corr)), reg_corr.keys())
 plt.show()
+
+
+with open('cross_corr.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    for key, value in cross_corr.items():
+       writer.writerow([key, value])
+
+
+with open('reg_corr.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    for key, value in reg_corr.items():
+       writer.writerow([key, value])

@@ -211,6 +211,8 @@ print(results)
 
 columns = results.iloc[0].index.values
 num_plots = int(input("Enter the number of team's plots: "))
+if num_plots >= 29:
+    num_plots = 29
 for i in range(0,num_plots):
     plt.plot(columns, results.iloc[i], markersize = 25.0)
 plt.legend(teams[:num_plots])
