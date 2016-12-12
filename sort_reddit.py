@@ -4,7 +4,7 @@ import pandas as pd
 import datetime
 import statsmodels.formula.api as sm
 import matplotlib.pyplot as plt
-
+import math
 
 # some preprocessing to filter out posts that dont mention a team or city
 team_names = ['Arizona',
@@ -122,7 +122,7 @@ teamDict = {'ANA':["Anaheim","Angels",],
  'SDP':["Diego","Padres","Petco"],
  'SEA':["Seattle","Mariners","Safeco"],
  'SFG':["Francisco","giants"],
- 'SLC':["St","Louis","Saint","Cardinals","Busch"],
+ 'SLC':["Louis","Saint","Cardinals","Busch"],
  'TBR':["Tampa","Rays","Tropicana"],
  'TEX':["Texas","Rangers","Globe Life","Arlington"],
  'TOR':["Toronto","Blue Jays","Jays","rogers centre"],
@@ -186,16 +186,22 @@ for week in week_dict.keys():
                     # print("Found: " + team)
                     # DEPRECIATED: here is where we "weight" posts. Higher scored posts get more weight
                     # CURRENT: what we do here is simple add the post scores
-                    if post[1]['Score'] > 2000:
+                    '''
+                    if post[1]['Score'] > 20000000000:
                         week_performance[str(team)] += 20
-                    elif post[1]['Score'] > 1000:
+                    elif post[1]['Score'] > 100000000:
                         week_performance[str(team)] += 10
-                    elif post[1]['Score'] > 100:
+                    elif post[1]['Score'] > 10000000:
                         week_performance[str(team)] += 5
-                    elif post[1]['Score'] > 10:
+                    elif post[1]['Score'] > 1000000:
                         week_performance[str(team)] += 2
                     else:
-                        week_performance[str(team)] += 1
+                    '''
+                    # An attempt at using a logarithic scale
+                    try:
+                        week_performance[str(team)] += math.log(post[1]['Score'],10)
+                    except:
+                        pass
                     # post[1]['Score']
 
     week_dict[week] = week_performance
