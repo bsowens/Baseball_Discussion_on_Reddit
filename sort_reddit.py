@@ -15,7 +15,7 @@ import datetime
 import matplotlib.pyplot as plt
 import math
 import csv
-from time import time, sleep
+
 import sys
 
 # some preprocessing to filter out posts that dont mention a team or city

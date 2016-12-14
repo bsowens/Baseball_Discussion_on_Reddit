@@ -26,10 +26,8 @@ The runtime is on the order of 5-10 seconds per day, depending on the activity (
 
 import praw
 import pandas as pd
-import numpy as np
 import time
 import datetime
-import itertools as it
 
 
 print("Enter date to start checking:\n (default 01/01/2015)")

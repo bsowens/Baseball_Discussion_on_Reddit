@@ -8,23 +8,24 @@ Description:
 This is a script that finds the correlation between the frequency and score of /r/baseball
 posts and MLB team performance. See report for more details.
 
+Displays the cross and Pearson correlation upon completion.
 '''
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
-from sklearn.metrics.pairwise import euclidean_distances
+# from sklearn.metrics.pairwise import euclidean_distances
 
 
 
-bdf = pd.read_csv('team_stats_2015.csv')
+bdf = pd.read_csv('data/team_stats_2015.csv')
 bdf = bdf.set_index('Unnamed: 0',drop=True)
 
 bdf = bdf.dropna()
 bdf_col = list(bdf.columns.values)
 
-rdf = pd.read_csv('reddit_stats_2015.csv')
+rdf = pd.read_csv('data/reddit_stats_2015.csv')
 
 rdf = rdf.fillna(value=0)
 
@@ -68,13 +69,13 @@ plt.xticks(range(len(reg_corr)), reg_corr.keys())
 plt.show()
 
 
-with open('cross_corr.csv', 'w') as csv_file:
+with open('data/cross_corr.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in cross_corr.items():
        writer.writerow([key, value])
 
 
-with open('reg_corr.csv', 'w') as csv_file:
+with open('data/reg_corr.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in reg_corr.items():
        writer.writerow([key, value])

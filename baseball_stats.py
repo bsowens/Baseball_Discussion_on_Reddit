@@ -10,15 +10,10 @@ it into a timeseries. See report for more details.
 
 '''
 
-
-
-import praw
 import pandas as pd
-import numpy as np
-import time
 import datetime
-import itertools as it
 import matplotlib.pyplot as plt
+import sys
 
 teams = ['ANA', 'ARI', 'ATL', 'BAL', 'BOS', 'CWS', 'CHC', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAD', 'MIA', 'MIL', 'MIN', 'NYY', 'NYM', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'SLC', 'TBR', 'TEX', 'TOR', 'WAS']
 
@@ -102,7 +97,10 @@ result = bin_winners(df, 'data/team_stats_2015.csv')
 
 
 columns = result.iloc[0].index.values
-num_plots = int(input("Enter the number of team's plots: "))
+num_plots = 0
+num_plots = int(input("Enter the number of team's plots (0 to exit): "))
+if num_plots == 0:
+    sys.exit(0)
 for i in range(0,num_plots):
     plt.plot(columns,result.iloc[i],markersize=25.0)
 axes = plt.gca()
