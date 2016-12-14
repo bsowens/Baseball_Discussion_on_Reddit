@@ -87,7 +87,6 @@ df = winners('baseball_data_2015.csv')
 result = bin_winners(df, 'team_stats_2015.csv')
 
 
-
 columns = result.iloc[0].index.values
 num_plots = int(input("Enter the number of team's plots: "))
 for i in range(0,num_plots):

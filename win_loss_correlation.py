@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
+from sklearn.metrics.pairwise import euclidean_distances
+
 
 
 bdf = pd.read_csv('team_stats_2015.csv')
@@ -34,6 +36,7 @@ for i in teams:
     try:
         reg_corr[i] = np.corrcoef(bdf[i],  rdf[i]).tolist()[0][1]
     except:pass
+
 
 for i in teams:
     try:
