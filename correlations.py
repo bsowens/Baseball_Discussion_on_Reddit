@@ -1,3 +1,15 @@
+'''
+File: scrape_reddit.py
+Purpose: CS 505 Final Project | Finding correlation of Reddit Posts and Team Performance
+Authors: Benjamin Owens, Jennifer Tsui
+Last modification: December 14, 2016
+
+Description:
+This is a script that finds the correlation between the frequency and score of /r/baseball
+posts and MLB team performance. See report for more details.
+
+'''
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

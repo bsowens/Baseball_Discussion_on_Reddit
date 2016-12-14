@@ -1,8 +1,8 @@
 '''
-File: scrape_reddit.ipynb
+File: scrape_reddit.py
 Purpose: CS 505 Final Project | Scraping reddit.com/r/baseball posts
 Authors: Benjamin Owens, Jennifer Tsui
-Last modification: November 11, 2016
+Last modification: December 14, 2016
 
 Description:
 This is a script that allows one to collect reddit posts from a subreddit (in this case, /r/baseball).
@@ -14,9 +14,13 @@ that includes only posts including the mentions of teams and cities (posts_with_
 The filtering component of the script is not finalized, but the methodology is sound 
 (we'll need to include abbreviations, nicknames, common typos, etc. in the future). 
 
+
+###### WARNING ######
+This web scraper takes A LONG TIME to collect even a few days worth of data. Don't attempt to run it,
+just use the data included in the /data/ directory.
+
 The runtime is on the order of 5-10 seconds per day, depending on the activity (number of posts).
 
-The raw script is also included as a .py file.
 
 '''
 
@@ -78,6 +82,6 @@ df["Score"] = scores
 df["Title"] = posts
 df["Date"] = dates
 
-df.to_csv("data.csv")
+df.to_csv("data/data.csv")
 print("Done writing 'data.csv'")
 

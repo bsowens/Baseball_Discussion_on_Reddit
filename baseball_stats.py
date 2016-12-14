@@ -1,3 +1,17 @@
+'''
+File: scrape_reddit.py
+Purpose: CS 505 Final Project | Measuring Team Performance
+Authors: Benjamin Owens, Jennifer Tsui
+Last modification: December 14, 2016
+
+Description:
+This is a script that processes the baseball data and bins
+it into a timeseries. See report for more details.
+
+'''
+
+
+
 import praw
 import pandas as pd
 import numpy as np
@@ -83,8 +97,8 @@ def bin_winners(df, filename):
 
 
 # Run functions on 2015 data
-df = winners('baseball_data_2015.csv')
-result = bin_winners(df, 'team_stats_2015.csv')
+df = winners('data/baseball_data_2015.csv')
+result = bin_winners(df, 'data/team_stats_2015.csv')
 
 
 columns = result.iloc[0].index.values

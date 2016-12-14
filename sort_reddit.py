@@ -1,11 +1,23 @@
+'''
+File: sort_reddit.py
+Purpose: CS 505 Final Project | Sorting reddit.com/r/baseball posts
+Authors: Benjamin Owens, Jennifer Tsui
+Last modification: December 14, 2016
 
+Description:
+This is a script that sorts the scraped data into a meaningful timeseries.
+See report for more details.
+'''
 
 import pandas as pd
 import datetime
-import statsmodels.formula.api as sm
+#import statsmodels.formula.api as sm
 import matplotlib.pyplot as plt
 import math
 import csv
+from time import time, sleep
+import sys
+
 # some preprocessing to filter out posts that dont mention a team or city
 team_names = ['Arizona',
  'Diamondbacks',
@@ -80,17 +92,17 @@ team_names = ['Arizona',
  'Jays',
  'Washington',
  'Nationals']
-df = pd.read_csv('data.csv')
+df = pd.read_csv('data/data.csv')
 filtered = df[df['Title'].str.split().apply(lambda x: len(set(x).intersection(set(team_names))))>0]
 filtered = filtered.drop_duplicates()
-filtered.to_csv("posts_with_mentions.csv")
+filtered.to_csv("data/posts_with_mentions.csv")
 print("Done writing 'posts_with_mentions.csv'")
 
-#EOF
 
 
-# TODO: count the mention of each team
-df = pd.read_csv('posts_with_mentions.csv')
+
+
+df = pd.read_csv('data/posts_with_mentions.csv')
 df = df.drop("Unnamed: 0",1)
 teams = ['ANA', 'ARI', 'ATL', 'BAL', 'BOS', 'CWS', 'CHC', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAD', 'MIA', 'MIL', 'MIN', 'NYY', 'NYM', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'SLC', 'TBR', 'TEX', 'TOR', 'WAS']
 teamDict = dict.fromkeys(teams)
@@ -163,7 +175,7 @@ for week in week_dict.keys():
         date = week + (day_delta * i)
         date = date.replace(hour=0)
         # print(date)
-        date_with_dst = [str(date), str(date + hour_delta)]
+        ## depreciated: date_with_dst = [str(date), str(date + hour_delta)] ##
         # print(date)
         # For every post on this day
 
@@ -189,7 +201,7 @@ for week in week_dict.keys():
                 if is_team_in == True:
                     # print("Found: " + team)
                     # DEPRECIATED: here is where we "weight" posts. Higher scored posts get more weight
-                    # CURRENT: what we do here is simple add the post scores
+                    # CURRENT: what we do here is simple add the log of the post scores
                     '''
                     if post[1]['Score'] > 20000000000:
                         week_performance[str(team)] += 20
@@ -214,10 +226,10 @@ for week in week_dict.keys():
 # Convert dict to pandas
 
 results = pd.DataFrame(week_dict)
-results.to_csv("reddit_stats_2015.csv")
+results.to_csv("data/reddit_stats_2015.csv")
 print(total_mentions)
 
-with open('total_mentions_2015.csv', 'w') as csv_file:
+with open('data/total_mentions_2015.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in total_mentions.items():
        writer.writerow([key, value])
@@ -231,7 +243,11 @@ with open('total_mentions_2015.csv', 'w') as csv_file:
 #df_1
 
 columns = results.iloc[0].index.values
-num_plots = int(input("Enter the number of team's plots: "))
+# timeout functionality so the python shell doesn't keep running if you forget to plot the teams
+
+num_plots = int(input("Enter the number of team's plots (0 to exit): "))
+if num_plots == 0:
+    sys.exit(0)
 if num_plots >= 29:
     num_plots = 29
 for i in range(0,num_plots):
