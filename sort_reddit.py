@@ -5,7 +5,7 @@ import datetime
 import statsmodels.formula.api as sm
 import matplotlib.pyplot as plt
 import math
-
+import csv
 # some preprocessing to filter out posts that dont mention a team or city
 team_names = ['Arizona',
  'Diamondbacks',
@@ -121,8 +121,8 @@ teamDict = {'ANA':["Anaheim","Angels",],
  'PIT':["Philadelphia","Phillies"],
  'SDP':["Diego","Padres","Petco"],
  'SEA':["Seattle","Mariners","Safeco"],
- 'SFG':["Francisco","giants"],
- 'SLC':["Louis","Saint","Cardinals","Busch"],
+ 'SFG':["Francisco","Giants"],
+ 'SLC':["Saint Louis","Cardinals","Busch"],
  'TBR':["Tampa","Rays","Tropicana"],
  'TEX':["Texas","Rangers","Globe Life","Arlington"],
  'TOR':["Toronto","Blue Jays","Jays","rogers centre"],
@@ -148,6 +148,10 @@ week_dict = {key: None for key in week_starts}
 
 # Remove DST
 df['Date'] = df['Date'].apply(lambda date: pd.datetime.strptime(date,"%Y-%m-%d %H:%M:%S").replace(hour=0))
+
+#init total mention dict
+total_mentions = dict.fromkeys(teams,0)
+
 
 # Count mentions by week
 for week in week_dict.keys():
@@ -200,6 +204,7 @@ for week in week_dict.keys():
                     # An attempt at using a logarithic scale
                     try:
                         week_performance[str(team)] += math.log(post[1]['Score'],10)
+                        total_mentions[str(team)] += 1
                     except:
                         pass
                     # post[1]['Score']
@@ -210,7 +215,17 @@ for week in week_dict.keys():
 
 results = pd.DataFrame(week_dict)
 results.to_csv("reddit_stats_2015.csv")
-print(results)
+print(total_mentions)
+
+with open('total_mentions_2015.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    for key, value in total_mentions.items():
+       writer.writerow([key, value])
+
+
+
+
+#print(results)
 #df_1_columns = list(results.columns.values)
 #df_1 = results[df_1_columns]
 #df_1
