@@ -84,12 +84,16 @@ To be continued!!!
 
 1) scrape_reddit.py (warning: takes awhile to run!)
  * Writes: ‘data.csv’
+ 
 2) sort_reddit.py
+
  * Reads: ‘data.csv’ (turns into df, performs work)
  * Writes: ‘posts_with_mentions.csv’, ‘reddit_stats_2015.csv’ (which was converted to a CSV from a df), 
+ 
 3) baseball_stats.py
  * Reads: 'baseball_data_2015.csv' (turns into df, performs work)
  * Writes: 'team_stats_2015.csv' (which was converted to a CSV from a df)
+ 
 4) Correlations.py
  * Reads: 'team_stats_2015.csv', 'reddit_stats_2015.csv'
  * Writes: 'cross_corr.csv', 'reg_corr.csv' (where reg_corr.csv contains the Pearson Correlation Coefficients)
