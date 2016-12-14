@@ -2,10 +2,13 @@
 
 import pandas as pd
 import datetime
-import statsmodels.formula.api as sm
+#import statsmodels.formula.api as sm
 import matplotlib.pyplot as plt
 import math
 import csv
+from time import time, sleep
+import sys
+
 # some preprocessing to filter out posts that dont mention a team or city
 team_names = ['Arizona',
  'Diamondbacks',
@@ -86,10 +89,10 @@ filtered = filtered.drop_duplicates()
 filtered.to_csv("posts_with_mentions.csv")
 print("Done writing 'posts_with_mentions.csv'")
 
-#EOF
 
 
-# TODO: count the mention of each team
+
+
 df = pd.read_csv('posts_with_mentions.csv')
 df = df.drop("Unnamed: 0",1)
 teams = ['ANA', 'ARI', 'ATL', 'BAL', 'BOS', 'CWS', 'CHC', 'CIN', 'CLE', 'COL', 'DET', 'HOU', 'KCR', 'LAD', 'MIA', 'MIL', 'MIN', 'NYY', 'NYM', 'OAK', 'PHI', 'PIT', 'SDP', 'SEA', 'SFG', 'SLC', 'TBR', 'TEX', 'TOR', 'WAS']
@@ -163,7 +166,7 @@ for week in week_dict.keys():
         date = week + (day_delta * i)
         date = date.replace(hour=0)
         # print(date)
-        date_with_dst = [str(date), str(date + hour_delta)]
+        ## depreciated: date_with_dst = [str(date), str(date + hour_delta)] ##
         # print(date)
         # For every post on this day
 
@@ -189,7 +192,7 @@ for week in week_dict.keys():
                 if is_team_in == True:
                     # print("Found: " + team)
                     # DEPRECIATED: here is where we "weight" posts. Higher scored posts get more weight
-                    # CURRENT: what we do here is simple add the post scores
+                    # CURRENT: what we do here is simple add the log of the post scores
                     '''
                     if post[1]['Score'] > 20000000000:
                         week_performance[str(team)] += 20
@@ -231,7 +234,11 @@ with open('total_mentions_2015.csv', 'w') as csv_file:
 #df_1
 
 columns = results.iloc[0].index.values
-num_plots = int(input("Enter the number of team's plots: "))
+# timeout functionality so the python shell doesn't keep running if you forget to plot the teams
+
+num_plots = int(input("Enter the number of team's plots (0 to exit): "))
+if num_plots == 0:
+    sys.exit(0)
 if num_plots >= 29:
     num_plots = 29
 for i in range(0,num_plots):
