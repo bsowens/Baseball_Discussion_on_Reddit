@@ -38,7 +38,7 @@ After looking at the resulting data and visualizations, we were not able to defi
 ### ⚾ Baseball fans love to talk about the St. Louis Cardinals no matter what, especially when they are eliminated from the world series.
 ### ⚾ The global average of correlation coefficients was found to be slightly positive. We can therefore claim that, in general, baseball fans tend to talk more about teams that are performing well.
 
-# [See the full report here:](https://github.com/bsowens/Baseball_Discussion_on_Reddit/blob/master/report.pdf)
+# [See the full report here](https://github.com/bsowens/Baseball_Discussion_on_Reddit/blob/master/report.pdf)
 
 
 ## Workflow
