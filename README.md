@@ -1,85 +1,44 @@
 # cs505-final-project
 
-##Proposal
-####Topic: Baseball Discussion on Reddit
-####Authors: Benjamin Owens [(bsowens)](https://github.com/bsowens) & Jennifer Tsui [(j-tsui)](https://github.com/j-tsui)
+# Intro:
+
+Often times sports have the side effect of bonding together the fans of each team. Perhaps it is the case that a very lonely person is looking to find their niche in the form of a baseball team to be a fan of. Our data would help this person find the most loyal fanbases, so they can make some new friends and bond over their newfound passion of baseball! We wanted to explore the idea of loyal or disloyal fanbases by comparing time series that detail reddit posting frequency (for each team) and win data for each team.
+
+# Datasets
+
+Both datasets sampled on a weekly basis.
+##⚾ Reddit Data
+⚾ Scraped from subreddit /r/baseball month by month
+
+using the Python package PRAW, which stands for
+Python Reddit API Wrapper
+### ⚾ We then filtered the data by only considered posts
+that included the team name, city, or their stadium name. Frequency of Reddit posts were scaled by the score, which is a value that Reddit gives to posts based on the number of upvotes and downvotes. After that, we just added the scaled frequencies for each week.
+###⚾ We took the log of each post’s score, then the sum of those scores for every week:
+weekly-score = sum ( log ( score[post 0: post n]))
+##⚾ Team Win Data
+⚾ We took the dataset from Retrosheet 2015 game log,
+which was given as a CSV in order to get more information on how each team performed during the year.
+⚾ From the original data, we kept yyyymmdd, Visiting Team, Visiting League, Home Team, Home League, Visiting Team Score, and Home Team Score
 
 
-####1) Discuss the dataset and their nature. How you got them, how they have been collected, what are their main characteristics, if you need to pre-process them, etc.
+# Technique
+We used the resulting filtered data to create two time series for each team
+####⚾ Time Series 1: Reddit Posting Frequency for the team 
+####⚾ Time Series 2: Wins (summed up over time, weekly) 
+Ultimately we decided to compare these two time series for each team by calculating the Pearson Correlation Coefficient using the built function corrcoef in the Numpy package. We assume that a high negative correlation would indicate that a team’s fans are loyal, since the frequency at which the fans are talking is not really affected by their performance — they’re always excited to talk about their teams. By the same token, we assume that a high positive correlation would indicate that a team’s fanbase is not the most loyal in that the rate of talking seems very much related to the teams performance during the season.
+We did try to compare the two time series by taking the cross-correlation, which is a measure of similarity between two series as a function of the displacement of one relative to the other. It is often used for signal processing. We tried this because it’s a common way to analyze time series, but ultimately didn’t stick with it because we don’t care about displacement for our time series.
+
+#Conclusions
+After looking at the resulting data and visualizations, we were not able to definitively conclude anything about the loyalty of each team’s fan base. We obviously oversimplified the complexity of fan loyalty by only looking at a small subset of fans. However, we can confidently claim the following:
+###⚾ Teams like the Phillies (PHI) and Cardinals (CWS) tend to have more loyal fanbases. On the other hand, teams such as the Diamondbacks (ARI) and Padres (SDP) seem to only be discussed during win streaks. Remarkably, we found these results to be consistent with the 2015 Brand Keys Sports Fan LoyaltyTM survey.
+###⚾ Baseball fans love to talk about the St. Louis Cardinals no matter what, especially when they are eliminated from the world series.
+###⚾ The global average of correlation coefficients was found to be slightly positive. We can therefore claim that, in general, baseball fans tend to talk more about teams that are performing well.
+
+##See the full report here:
 
 
-We will be analyzing 2 datasets:
-
-* [www.reddit.com/r/baseball](https://www.reddit.com/r/baseball/) (posts and comments)
- * We will be using the Reddit API and the pacakge [PRAW](https://github.com/praw-dev/praw) to retrieve data from the /r/baseball subreddit. We plan to perform semantic analysis to quantify popularity of teams based on quantity and frequency of mentions and discussion.
- 
-* [ESPN](www.espn.com/static/apis/devcenter/docs/scores.html) OR [Retrosheet 2015 game log](http://www.retrosheet.org/gamelogs/index.html) 
- * We may either use the ESPN API or the gamelogs dataset from 2015 (which is a CSV) in order to get more information on how each team performed during the year. For example, we would retrieve the number of losses and wins for a team, when these losses and wins happened, as well as post-season performance, where teams are either eliminated or advance to the next series.
- * Note (11/11/16): We discovered we could not access the ESPN API anymore, thus we decided to use the Retrosheet game log. That dataset did not contain any information on post-season performance, so we only kept the data pertaining to which teams were playing and who won or lost.
- 
-* If we have time: [Sentiment Labelled Sentences Data Set ](https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences)
- * If we want to delve further into the discussion of teams on subreddits, we might use this very unique dataset, which provides the tools to classify sentences based on a positive or negative sentiment.
-
-
-####2) Expected analysis on the dataset. What kind of techniques you plan to use.
-
-
-In order to retrieve the data, we plan to use web scraping and `HTTP GET` request techniques we learned in this course.
-
-
-We plan to place more emphasis on posts with high scores vs posts with low scores. To reduce noise, we will most likely drop posts with a very low score, as they have low visibility and relevance. On the other hand, posts with very high scores will be weighted more heavily than posts with low, but not negligible scores.
-
-
-We hope to discover a correlation between teams’ performance in the regular/post-season and its popularity on the /r/baseball subreddit. From there, we want to glean some idea of whether the teams fanbases are loyal or not.
-
-
-To visualize the data, we plan to represent the wins and losses in at least two ways. The first way would be a scatter plot, where wins and losses are plotted on the x and y axis, respectively. The second way would incorporate some measurement of time (maybe a timeseries of a ratio between wins and losses). We would document Reddit activity by comparing mentions of each team over time.
-
-
-####3) Application.
-
-
-Often times sports have the side effect of bonding together the fans of each team. Perhaps it’s the case that a very lonely person is looking to find their niche in the form of a baseball team to be a fan of. Our data would help this person find the most loyal fanbases, so they can make some new friends and bond over their newfound passion of baseball! On the other hand, locating a very loyal fanbase may help with classifying the general sentiment of the fanbase, and why they may be seen as negative or positive. This may sound farfetched, but in actuality the study of sports fans lays at the intersections of various disciplines including psychology, sociology, and physiology. If you’re curious about it, please see the included links.
-
-
-####4) Expected results.
-
-
-Our hypothesis is that teams will, in general, become more popular if they perform well, and less popular if they perform poorly. With this correlation in mind, we hope to find that some teams have more loyal fanbases than other, when their popularity remains high despite poor performance, and that some teams are only popular when they are performing well.
-
-
-
-##Files
-
-###scrape_reddit.ipynb
-####Purpose: CS 505 Final Project | Scraping reddit.com/r/baseball posts
-####Last modification: November 11, 2016
-
-Description:
-This is a script that allows one to collect reddit posts from a subreddit (in this case, /r/baseball).
-The script allows the user to collect data from any time period, specified by the user input. 
-
-For the purposes of this assignment, we collected posts from the most recent full year (2015). The `.csv`
-file derived from the full execution is included in the repository `data.csv`, as well as the filtered data
-that includes only posts including the mentions of teams and cities (`posts_with_mentions.csv`). 
-The filtering component of the script is not finalized, but the methodology is sound 
-(we'll need to include abbreviations, nicknames, common typos, etc. in the future). 
-
-The runtime is on the order of 5-10 seconds / day, depending of the activity (number of posts). 
-
-###baseball_data.csv
-####Last modification: November 10, 2016
-
-Description:
-This file contains information about which teams faced each other, and the scores for each respective teams. 
-Rows take on the form of [date, visiting team, visiting league, home team, home league, visiting team score, home score. ]
-
-## Links
-
-* [The Psychology Of Social Sports Fans: What Makes Them So Crazy?](http://www.sportsnetworker.com/2012/02/15/the-psychology-of-sports-fans-what-makes-them-so-crazy/)
-* [The Psychology of Being a Sports Fan](http://www.seattletimes.com/sports/the-psychology-of-being-a-sports-fan/)
-* [Fan Loyalty](https://en.wikipedia.org/wiki/Fan_loyalty)
-* [Brand Keys Press Release Sports Fan Loyalty Index](http://brandkeys.com/wp-content/uploads/2014/08/PRESS-RELEASE-SLI-MLB-2015Apr-6.pdf)
+##https://github.com/bsowens/Baseball_Discussion_on_Reddit/blob/master/report.pdf
 
 ## Workflow
 
