@@ -1,4 +1,7 @@
-# cs505-final-project
+# Baseball Discussion on Reddit
+
+### Benjamin Owens @bsowens
+### Jennifer Tsui @j-tsui
 
 # Intro:
 
@@ -8,7 +11,7 @@ Often times sports have the side effect of bonding together the fans of each tea
 
 Both datasets sampled on a weekly basis.
 ##⚾ Reddit Data
-⚾ Scraped from subreddit /r/baseball month by month
+###⚾ Scraped from subreddit /r/baseball month by month
 
 using the Python package PRAW, which stands for
 Python Reddit API Wrapper
